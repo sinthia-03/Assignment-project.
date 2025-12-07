@@ -1,0 +1,121 @@
+//Num-----------1
+
+class Book
+{
+  String title;
+  String author;
+  double price;
+  Book(this.title,this.author,this.price);
+  double discountPrice(double discountPercent) => price - (price * discountPercent/100);
+
+  void showbookdetails()
+  {
+    print('Title: $title');
+    print('Author: $author');
+    print('Price: $price');
+  }
+}
+void main()
+{
+  Book b1 = Book('Shesher Kobita', 'Rabindranath Tagore', 700);
+  Book b2 = Book('Harry Potter Series', 'J.K. Rowling', 1000);
+
+  print("\n-----Book1----");
+  b1.showbookdetails();
+  print("Discounted Price: ${b1.discountPrice(10)}\n");
+
+  print("\n----Book2-----");
+  b2.showbookdetails();
+  print("Discounted Price: ${b2.discountPrice(15)}");
+}
+
+
+// Num--------2
+
+class Employee
+{
+  String name;
+  double salary;
+  Employee(this.name,this.salary);
+}
+class Manager extends Employee
+{
+  String department;
+  Manager(String name, double salary,this.department):super(name,salary);
+  void displayinfo()
+  {
+    print('Manager name: $name');
+    print('salary: $salary');
+    print('Department: $department');
+  }
+
+}
+class Developer extends Employee
+{
+  String programmingLanguage;
+  Developer(String name, double salary, this.programmingLanguage):super(name, salary);
+  void displayinfo()
+  {
+    print('Developer Name: $name');
+    print('Salary: $salary');
+    print('Programing Language: $programmingLanguage');
+  }
+}
+void main()
+{
+  Manager m = Manager('Tamim', 45000, 'IT Department');
+  Developer d = Developer('Sinthia', 50000, 'Dart');
+
+  print('\n----Manager Info----');
+  m.displayinfo();
+
+  print('\n-----Developer Info-----');
+  d.displayinfo();
+}
+
+
+
+// Num----------3
+
+abstract class Appliance
+{
+  void turnOn();
+  void turnOff();
+
+}
+class Fan implements Appliance
+{
+  void turnOn()
+  {
+    print('Fan is now running.');
+  }
+  void turnOff()
+  {
+    print('Fan is turned off.');
+  }
+}
+class Light implements Appliance
+{
+  void turnOn()
+
+  {
+    print('Light is switched on.');
+  }
+  void turnOff()
+  {
+    print('Light is switched Off.');
+  }
+}
+void main()
+{
+  Fan f = Fan();
+  Light l = Light();
+
+  print('\n---Fan---');
+  f.turnOn();
+  f.turnOff();
+
+  print('\n----Light----');
+  l.turnOn();
+  l.turnOff();
+}
